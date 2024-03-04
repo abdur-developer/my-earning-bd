@@ -4,6 +4,9 @@ require 'dbconnect.php';
 if (!isset($_SESSION['islogin'])) {
     header("location: index.php");
 }
+static $FOR_USER = 0;
+static $FOR_WITHDRAW = 1;
+static $FOR_DEPOSIT = 2;
 ?>
 
 <!DOCTYPE html>
@@ -204,114 +207,114 @@ if (!isset($_SESSION['islogin'])) {
             $q = "";
             $title = "";
             $sql = "";
-            $xx = 0;
+            $xx = $FOR_USER;
             // a_w, p_w, s_w, count, a_d, p_d, s_d, active, all
             if (isset($_REQUEST['q'])) {
                 $q = $_REQUEST['q'];
                 if ($q == 'active') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Active User for $xxx";
-                        $sql = "SELECT * FROM users WHERE status = 'Approved' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Active User for $search_que";
+                        $sql = "SELECT * FROM users WHERE status = 'Approved' AND email='$search_que'";
                     } else {
                         $title = "Active User";
                         $sql = "SELECT * FROM users WHERE status = 'Approved'";
                     }
-                    $xx = 0;
+                    $xx = $FOR_USER;
                 } else if ($q == 'pp') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Pending  for $xxx";
-                        $sql = "SELECT * FROM users WHERE status = 'Pending' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Pending  for $search_que";
+                        $sql = "SELECT * FROM users WHERE status = 'Pending' AND email='$search_que'";
                     } else {
                         $title = "Pending user";
                         $sql = "SELECT * FROM users WHERE status = 'Pending'";
                     }
-                    $xx = 1;
+                    $xx = $FOR_USER;
                 } else if ($q == 'a_w') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Withdrew  for $xxx";
-                        $sql = "SELECT * FROM withdrew WHERE email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Withdrew  for $search_que";
+                        $sql = "SELECT * FROM withdrew WHERE email='$search_que'";
                     } else {
                         $title = "All Withdrew";
                         $sql = "SELECT * FROM withdrew";
                     }
-                    $xx = 1;
+                    $xx = $FOR_WITHDRAW;
                 } else if ($q == 'a_d') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Deposit for $xxx";
-                        $sql = "SELECT * FROM deposit WHERE email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Deposit for $search_que";
+                        $sql = "SELECT * FROM deposit WHERE email='$search_que'";
 
                     } else {
                         $title = "All Deposit";
                         $sql = "SELECT * FROM deposit";
                     }
-                    $xx = 2;
+                    $xx = $FOR_DEPOSIT;
                 } else if ($q == 'p_w') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Pending Withdrew for $xxx";
-                        $sql = "SELECT * FROM withdrew  WHERE status = 'Pending' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Pending Withdrew for $search_que";
+                        $sql = "SELECT * FROM withdrew  WHERE status = 'Pending' AND email='$search_que'";
 
                     } else {
                         $title = "Pending Withdrew";
                         $sql = "SELECT * FROM withdrew  WHERE status = 'Pending'";
                     }
-                    $xx = 1;
+                    $xx = $FOR_WITHDRAW;
                 } else if ($q == 'p_d') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Pending Deposit for $xxx";
-                        $sql = "SELECT * FROM deposit  WHERE status = 'Pending' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Pending Deposit for $search_que";
+                        $sql = "SELECT * FROM deposit  WHERE status = 'Pending' AND email='$search_que'";
 
                     } else {
                         $title = "Pending Deposit";
                         $sql = "SELECT * FROM deposit  WHERE status = 'Pending'";
                     }
-                    $xx = 2;
+                    $xx = $FOR_DEPOSIT;
                 } else if ($q == 's_w') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Success Withdrew for $xxx";
-                        $sql = "SELECT * FROM withdrew WHERE status = 'Approved' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Success Withdrew for $search_que";
+                        $sql = "SELECT * FROM withdrew WHERE status = 'Approved' AND email='$search_que'";
 
                     } else {
                         $title = "Success Withdrew";
                         $sql = "SELECT * FROM withdrew WHERE status = 'Approved'";
                     }
-                    $xx = 1;
+                    $xx = $FOR_WITHDRAW;
                 } else if ($q == 's_d') {
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "Success Deposit for $xxx";
-                        $sql = "SELECT * FROM deposit WHERE status = 'Approved' AND email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "Success Deposit for $search_que";
+                        $sql = "SELECT * FROM deposit WHERE status = 'Approved' AND email='$search_que'";
 
                     } else {
                         $title = "Success Deposit";
                         $sql = "SELECT * FROM deposit WHERE status = 'Approved'";
                     }
-                    $xx = 2;
+                    $xx = $FOR_DEPOSIT;
                 } else { //all user
                     if (isset($_REQUEST['search'])) {
-                        $xxx = $_REQUEST['search'];
-                        $title = "$xxx User";
-                        $sql = "SELECT * FROM users WHERE email='$xxx'";
+                        $search_que = $_REQUEST['search'];
+                        $title = "$search_que User";
+                        $sql = "SELECT * FROM users WHERE email='$search_que'";
                     }else if(isset($_REQUEST['ref_code'])){
-                        $xxx = $_REQUEST['ref_code'];
-                        $title = "user by $xxx";
-                        $sql = "SELECT * FROM users WHERE ot_ref_code='$xxx'";
+                        $search_que = $_REQUEST['ref_code'];
+                        $title = "user by $search_que";
+                        $sql = "SELECT * FROM users WHERE ot_ref_code='$search_que'";
                     } else {
                         $title = "All User";
                         $sql = "SELECT * FROM users";
                     }
-                    $xx = 0;
+                    $xx = $FOR_USER;
                 }
             } else {
                 $title = "All User";
                 $sql = "SELECT * FROM users";
-                $xx = 0;
+                $xx = $FOR_USER;
             }
 
 
@@ -415,7 +418,7 @@ if (!isset($_SESSION['islogin'])) {
 <?php
 function show_html($par, $q, $count, $query)
 {
-    if ($par == 0) { //for users?>
+    if ($par == 0 ) { //for users?>
 
         <section class="min-h-screen">
             <br>
@@ -588,7 +591,7 @@ function show_html($par, $q, $count, $query)
             </section>
 
 
-    <?php } else { //for deposite ?>
+    <?php } else { //$FOR_DEPOSIT ?>
 
             <section class="min-h-screen">
                 <br>
