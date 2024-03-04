@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://i.ibb.co/6859944/LOGO-My-Earning-BD.png">
+    <title>Login | my earning bd</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.11/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div>
+        <div class="bg-nav-color text-sm md:text-base">
+            <div class='max-w-[2530px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4'>
+                <div class="flex justify-between items-center">
+                    <div><a href="index.php">
+                        <button class="cursor-pointer p-4 font-bold flex justify-center items-center text-yellow-500">
+                          <img src="https://i.ibb.co/6859944/LOGO-My-Earning-BD.png" width="50" alt="">
+                          <p> EarningBD</p></button></a>
+                      </div>
+                    <div class="flex md:space-x-10 space-x-3 p-5 text-[10px] md:text-base">
+                        <button class="font-bold"><a href="index.php">Home</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="class='max-w-[2530px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4'">
+            <div>
+                <h2 class="text-center font-bold mt-5 text-2xl">
+                    Welcome Back! Login
+                </h2>
+                <p class="text-center mb-10">
+                    <Link>
+                    <span class="text-blue-500 border-b-2 border-b-blue-500">
+                    </span>
+                    </Link>
+                </p>
+
+                <form>
+                    <input id="login_email" placeholder="Enter Your Email" type="email" class="border-2 w-full p-5 mb-5"/>
+
+                    <br />
+                    <input id="login_password" placeholder="Enter Your Password" type="password" class="border-2 w-full p-5 mb-5"/>
+                    <br />
+
+                    <button type="button" onClick={handleForgetPassword}
+                        class="mb-5 border-b text-blue-500 border-b-blue-600">
+                        <a href="forget.php"> Forget Password</a>
+                    </button>
+
+                    
+                <p class="text-center mb-10">
+                    You Don't have an account? Please
+                    <a href="signup.php">
+                    <span class="text-blue-500 border-b-2 border-b-blue-500">
+                        SignUp
+                    </span>
+                </a>
+                </p>
+
+                    <button type="button" id="login"  name="login" 
+                        class="bg-[#FFD248] bg-gradient-to-r from-[#ffd248] to-[#f5ba62] px-5 py-5 rounded-lg shadow font-bold w-full cursor-pointer" >Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script  type="module">
+
+
+          // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+	  import { getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+	  
+	  
+	const firebaseConfig = {
+    apiKey: "AIzaSyBCBZVlV7tWg6Sr1aiS-bhKIBLGq7Q5AyU",
+    authDomain: "my-earning-924f3.firebaseapp.com",
+    projectId: "my-earning-924f3",
+    storageBucket: "my-earning-924f3.appspot.com",
+    messagingSenderId: "442244670815",
+    appId: "1:442244670815:web:88b4c24b647a586c3e42ea",
+    measurementId: "G-DX2RCJSQM2"
+  	};
+	  
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	  const auth = getAuth();
+
+	  
+
+    //----- Login code start	  
+	document.getElementById("login").addEventListener("click", function() {
+		  var email =  document.getElementById("login_email").value;
+		  var password = document.getElementById("login_password").value;
+
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    //alert(user.email+" Login successfully!!!");
+			location.href = 'loginS.php?email='+user.email;
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: errorCode
+            });
+		  });		  		  
+	  });
+	  //----- End
+    </script>
+
+</body>
+
+</html>
