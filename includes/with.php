@@ -1,48 +1,5 @@
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
-Problem
 <?php
 if(isset($_REQUEST['amount'])){
-    require 'dbconnect.php';
     //session_start();
     $email = $_SESSION['my_login_mail'];
 
@@ -70,13 +27,17 @@ if(isset($_REQUEST['amount'])){
                     title: 'Congrass...!',
                     text: 'withdew success please wait few hour',
                     icon: 'success'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'dashboard.php';
+                    }
                 });</script>";
             }
         }
 
     }else{
         echo "<script>Swal.fire({
-            title: 'Congrass...!',
+            title: 'Opps...!',
             text: 'you have not enough balance',
             icon: 'error'
         });</script>";

@@ -69,8 +69,8 @@ if (isset($_SESSION['my_login_mail'])) {
 
           <?php } else { ?>
             <div class="space-x-4">
-              <button class="font-bold"><a href="login.html"> Login</a></button>
-              <button class="Sign-up-ex-c px-5 rounded-lg shadow font-bold"><a href="signup.php">
+              <button class="font-bold"><a href="login.php"> Login</a></button>
+              <button class="Sign-up-ex-c px-2 rounded-lg shadow font-bold"><a href="signup.php">
                   Sign Up</a>
               </button>
             </div>
@@ -102,13 +102,13 @@ if (isset($_SESSION['my_login_mail'])) {
         <div class="text-[10px] md:text-xl flex gap-5 px-5 justify-center mt-5">
           <?php if ($is_login) { ?>
 
-            <button class="Sign-up-ex-c px-5 rounded-lg shadow font-bold"><a href="dashboard.php"> Dashboard</a></button>
+            <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="dashboard.php"> Dashboard</a></button>
             </button>
 
           <?php } else { ?>
             <div class="space-x-4">
-              <button class="Sign-up-ex-c px-5 rounded-lg shadow font-bold"><a href="login.html"> Login</a></button>
-              <button class="Sign-up-ex-c px-5 rounded-lg shadow font-bold"><a href="signup.php">
+              <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="login.php"> Login</a></button>
+              <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="signup.php">
                   Sign Up</a>
               </button>
             </div>

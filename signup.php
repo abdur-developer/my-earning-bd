@@ -81,7 +81,7 @@
 
             <p class="text-center mb-10">
               Already Registered? Please
-              <a href="login.html">
+              <a href="login.php">
                 <span class="text-blue-500 border-b-2 border-b-blue-500">
                   Login
                 </span>
