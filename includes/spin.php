@@ -134,9 +134,10 @@
                 setTimeout(function () {		//alert
                     hoory.play();
 
-                    var numbers = [7, 6, 5];
+                    var numbers = [7, 7, 7, 9, 9, 9, 8, 8, 11, 10, 6, 12];
                     // var numbers = [6, 7, 8, 8, 8, 8, 9, 10, 11, 12];
                     //7,6,5,6,5,6,5,6,5
+                    //
                     var randomIndex = Math.floor(Math.random() * numbers.length);
 
                     //===========

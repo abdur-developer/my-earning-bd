@@ -8,31 +8,41 @@ if(isset($_REQUEST['amount'])){
     $number = $_REQUEST['number'];
 
     //for get total balance and withdrew
-    $sql_q = "SELECT * FROM users WHERE email = '$email'";
+    $sql_q = "SELECT t_ref, balance, t_withdrew  FROM users WHERE email = '$email'";
     $row = mysqli_fetch_assoc(mysqli_query($conn, $sql_q));
+
+    $total_refer = $row['t_ref'];
     $current_blance = $row['balance'];
     //echo $current_blance;echo "<br>";
-    if($current_blance > $amount){
+    if($current_blance >= $amount){
 
-        //for insert in withdrew
-        $sql = "INSERT INTO withdrew (email, phone, amount, method) VALUES ('$email', '$number', '$amount', '$method')";
-        if(mysqli_query($conn, $sql)){
-            
-            $current_blance -= $amount;
-            $amount += $row['t_withdrew'];
-            //for update total balance and withdrew
-            $sql = "UPDATE users SET t_withdrew = '$amount', balance = '$current_blance' WHERE email = '$email'";
+        if($total_refer >= 2){
+            //for insert in withdrew
+            $sql = "INSERT INTO withdrew (email, phone, amount, method) VALUES ('$email', '$number', '$amount', '$method')";
             if(mysqli_query($conn, $sql)){
-                echo "<script>Swal.fire({
-                    title: 'Congrass...!',
-                    text: 'withdew success please wait few hour',
-                    icon: 'success'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = 'dashboard.php';
-                    }
-                });</script>";
+                
+                $current_blance -= $amount;
+                $amount += $row['t_withdrew'];
+                //for update total balance and withdrew
+                $sql = "UPDATE users SET t_withdrew = '$amount', balance = '$current_blance' WHERE email = '$email'";
+                if(mysqli_query($conn, $sql)){
+                    echo "<script>Swal.fire({
+                        title: 'Congrass...!',
+                        text: 'withdew success please wait few hour',
+                        icon: 'success'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'dashboard.php';
+                        }
+                    });</script>";
+                }
             }
+        }else{
+            echo "<script>Swal.fire({
+                title: 'Opps...!',
+                text: 'you must refer at least 2',
+                icon: 'error'
+            });</script>";
         }
 
     }else{
