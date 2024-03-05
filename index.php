@@ -54,7 +54,7 @@ if (isset($_SESSION['my_login_mail'])) {
         <div><a href="">
             <button class="cursor-pointer p-4 font-bold flex justify-center items-center text-yellow-500">
               <img src="assets/images/favicon.png" style="width: 45px; height: 30px;" alt="">
-              <h1 class="font-bold text-2xl">MY EarningBD</h1>
+              <h1 class="font-bold text-xl">MY EarningBD</h1>
             </button></a>
         </div>
         <div class="flex md:space-x-10 space-x-3 p-5 text-[10px] md:text-base">
@@ -89,14 +89,14 @@ if (isset($_SESSION['my_login_mail'])) {
   <!-- banner -->
   <div class="bg-[#FFFFFD] ">
     <div class="flex justify-between items-center ">
-      <div class="px-3">
+      <div class="px-3 ml-3">
         <div class="flex flex-col justify-center items-center">
           <h2 class="font-bold text-2xl md:text-5xl">১রেফারে</h2>
           <h2 class="text-[#FFBC27] text-2xl font-bold md:text-5xl">
             ৪০ টাকা
           </h2>
         </div>
-        <p class="text-[10px] md:text-xl text-justify  py-5">
+        <p class="text-[10px] md:text-xl text-justify  py-5" style="font-size: 15px">
           ১০০ টাকা দিয়ে অ্যাকাউন্ট খুলে প্রতি রেফার করলে আপনি পাবেন ৪০ টাকা
         </p>
         <div class="text-[10px] md:text-xl flex gap-5 px-5 justify-center mt-5">
@@ -106,9 +106,9 @@ if (isset($_SESSION['my_login_mail'])) {
             </button>
 
           <?php } else { ?>
-            <div class="space-x-4">
-              <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="login.php"> Login</a></button>
-              <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="signup.php">
+            <div class="">
+              <button class="Sign-up-ex-c px-2 mb-2 rounded-lg shadow font-bold col-6"><a href="login.php"> Login</a></button>
+              <button class="Sign-up-ex-c px-2 mb-2 rounded-lg shadow font-bold col-6"><a href="signup.php">
                   Sign Up</a>
               </button>
             </div>
@@ -116,7 +116,7 @@ if (isset($_SESSION['my_login_mail'])) {
         </div>
       </div>
       <div class="relative">
-        <img src="assets/images/img2.png" class="md:w-96" alt="" />
+        <img src="assets/images/img2.png" class="md:w-100" alt="" />
       </div>
     </div>
   </div>

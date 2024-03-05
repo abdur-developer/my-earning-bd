@@ -16,7 +16,7 @@ if(isset($_REQUEST['amount'])){
     //echo $current_blance;echo "<br>";
     if($current_blance >= $amount){
 
-        if($total_refer >= 2){
+        if($total_refer >= 4){//minimum four refer
             //for insert in withdrew
             $sql = "INSERT INTO withdrew (email, phone, amount, method) VALUES ('$email', '$number', '$amount', '$method')";
             if(mysqli_query($conn, $sql)){
@@ -40,7 +40,7 @@ if(isset($_REQUEST['amount'])){
         }else{
             echo "<script>Swal.fire({
                 title: 'Opps...!',
-                text: 'you must refer at least 2',
+                text: 'you must refer at least 4',
                 icon: 'error'
             });</script>";
         }

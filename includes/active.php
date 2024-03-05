@@ -10,12 +10,18 @@ if (isset($_REQUEST["number"])) {
     $query = mysqli_query($conn, $sql);
     if ($query) { ?>
 
-        <div style='background: green;'>
-            <center style="margin-top: 25px; padding-top: 10px;">
-                <i class="fa fa-check"></i>
-                Successfully Data inserted..
-            </center>
-        </div>
+        <script>
+            document.cookie = 'active=ones; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/';
+            Swal.fire({
+                title: "Congrass...!",
+                text: "Successfully Data inserted..",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "dashboard.php";
+                }
+            });
+        </script>
     <?php }
 } else {
     ?>
@@ -54,7 +60,7 @@ if (isset($_REQUEST["number"])) {
                 <p class="text-white mt-2 text-center">
                     যে নাম্বারে টাকা পাঠাবেন (Send Money)
                 <div class="bg-slate-900 text-center p-3 mt-5 flex justify-center items-center gap-2">
-                    <p class="text-white">01981164074</p>
+                    <p class="text-white">01948228789</p>
 
                     <button class="text-white">
                         <i class="fa-regular fa-copy"></i>
@@ -116,9 +122,16 @@ if (isset($_REQUEST["number"])) {
                         <input type="transaction" name="trx" class="border w-full p-3 mt-2" profile="Transaction number"
                             required />
                     </div>
-                    <input type="submit"
-                        class="border w-full p-5 bg-blue-500 text-white rounded-lg mt-5 font-bold cursor-pointer"
-                        value="Request" />
+                    <?php if(isset($_COOKIE['active'])){
+                        echo "<p
+                        class='border w-full p-5 bg-orange-500 text-white rounded-lg mt-5 font-bold cursor-pointer'>
+                        আপনি একবার রিকুয়েস্ট পাঠিয়েছেন </p>";
+                    } else {
+                        echo "<input type='submit'
+                        class='border w-full p-5 bg-blue-500 text-white rounded-lg mt-5 font-bold cursor-pointer'
+                        value='Request' />";
+                    } ?>
+                    
                 </div>
             </form>
         </div>
