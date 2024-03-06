@@ -75,6 +75,9 @@ if(isset($_REQUEST['amount'])){
         <div
             class="bg-gray-200 p-5 mt-5 rounded-xl shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
             <form class="space-y-5" action="" method="post">
+                <div class="text-sm rounded bg-blue-500 p-5">
+                    <h3 class="text-white ">টাকা উইথড্র দেওয়ার জন্য আপনাকে মিনিমাম ৪ টি রেফার কমপ্লিট করতে হবে। মাত্র ৪ টি রেফার করে আপনি আনলিমিটেড উইথড্র করতে পারবেন। ধন্যবাদ </h3>
+                </div>
                 <div class="text-sm">
                     <label htmlFor="" class="ml-2 text-blue-950 font-extrabold">
                         কত টাকা উত্তলন করবেন ?
