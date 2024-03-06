@@ -84,6 +84,9 @@ static $FOR_DEPOSIT = 2;
                         <a href='counter.php'>
                             <h1>@- Counter</h1>
                         </a>
+                        <a href='hisab.php'>
+                            <h1>@- Hisab</h1>
+                        </a>
                         <hr>
                         <div>
                             <a href="logout.php"><button
@@ -145,6 +148,9 @@ static $FOR_DEPOSIT = 2;
                     <hr>
                     <a href='counter.php'>
                         <h1>@- Counter</h1>
+                    </a>
+                    <a href='hisab.php'>
+                        <h1>@- Hisab</h1>
                     </a>
                     <hr>
                     <div>
