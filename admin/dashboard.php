@@ -217,86 +217,117 @@ static $FOR_DEPOSIT = 2;
             // a_w, p_w, s_w, count, a_d, p_d, s_d, active, all
             if (isset($_REQUEST['q'])) {
                 $q = $_REQUEST['q'];
-                if ($q == 'active') {
+                if ($q == 'active') { //active user
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Active User for $search_que";
                         $sql = "SELECT * FROM users WHERE status = 'Approved' AND email='$search_que'";
+                    }else if(isset($_REQUEST['ref_code'])){
+                        $search_que = $_REQUEST['ref_code'];
+                        $title = "user by $search_que";
+                        $sql = "SELECT * FROM users WHERE status = 'Approved' AND ot_ref_code='$search_que'";
                     } else {
                         $title = "Active User";
                         $sql = "SELECT * FROM users WHERE status = 'Approved'";
                     }
                     $xx = $FOR_USER;
-                } else if ($q == 'pp') {
+                } else if ($q == 'pp') { //pending user
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Pending  for $search_que";
                         $sql = "SELECT * FROM users WHERE status = 'Pending' AND email='$search_que'";
+                    }else if(isset($_REQUEST['ref_code'])){
+                        $search_que = $_REQUEST['ref_code'];
+                        $title = "user by $search_que";
+                        $sql = "SELECT * FROM users WHERE status = 'Pending' AND ot_ref_code='$search_que'";
                     } else {
                         $title = "Pending user";
                         $sql = "SELECT * FROM users WHERE status = 'Pending'";
                     }
                     $xx = $FOR_USER;
-                } else if ($q == 'a_w') {
+                } else if ($q == 'a_w') { //all withdraw
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Withdrew  for $search_que";
                         $sql = "SELECT * FROM withdrew WHERE email='$search_que'";
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Withdraw for $search_que";
+                        $sql = "SELECT * FROM withdrew WHERE phone='$search_que'";
                     } else {
                         $title = "All Withdrew";
                         $sql = "SELECT * FROM withdrew";
                     }
                     $xx = $FOR_WITHDRAW;
-                } else if ($q == 'a_d') {
+                } else if ($q == 'a_d') { //all diposite
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Deposit for $search_que";
                         $sql = "SELECT * FROM deposit WHERE email='$search_que'";
-
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Withdraw for $search_que";
+                        $sql = "SELECT * FROM deposit WHERE phone='$search_que'";
                     } else {
                         $title = "All Deposit";
                         $sql = "SELECT * FROM deposit";
                     }
                     $xx = $FOR_DEPOSIT;
-                } else if ($q == 'p_w') {
+                } else if ($q == 'p_w') { //pending withdraw
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Pending Withdrew for $search_que";
                         $sql = "SELECT * FROM withdrew  WHERE status = 'Pending' AND email='$search_que'";
 
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Withdraw for $search_que";
+                        $sql = "SELECT * FROM withdrew WHERE status = 'Pending' AND phone='$search_que'";
                     } else {
                         $title = "Pending Withdrew";
                         $sql = "SELECT * FROM withdrew  WHERE status = 'Pending'";
                     }
                     $xx = $FOR_WITHDRAW;
-                } else if ($q == 'p_d') {
+                } else if ($q == 'p_d') { //pending diposite
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Pending Deposit for $search_que";
                         $sql = "SELECT * FROM deposit  WHERE status = 'Pending' AND email='$search_que'";
 
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Withdraw for $search_que";
+                        $sql = "SELECT * FROM deposit WHERE status = 'Pending' AND phone='$search_que'";
                     } else {
                         $title = "Pending Deposit";
                         $sql = "SELECT * FROM deposit  WHERE status = 'Pending'";
                     }
                     $xx = $FOR_DEPOSIT;
-                } else if ($q == 's_w') {
+                } else if ($q == 's_w') { //success withdraw
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Success Withdrew for $search_que";
                         $sql = "SELECT * FROM withdrew WHERE status = 'Approved' AND email='$search_que'";
 
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Success Withdrew for $search_que";
+                        $sql = "SELECT * FROM withdrew WHERE status = 'Approved' AND phone='$search_que'";
                     } else {
                         $title = "Success Withdrew";
                         $sql = "SELECT * FROM withdrew WHERE status = 'Approved'";
                     }
                     $xx = $FOR_WITHDRAW;
-                } else if ($q == 's_d') {
+                } else if ($q == 's_d') { //success diposite
                     if (isset($_REQUEST['search'])) {
                         $search_que = $_REQUEST['search'];
                         $title = "Success Deposit for $search_que";
                         $sql = "SELECT * FROM deposit WHERE status = 'Approved' AND email='$search_que'";
 
+                    }else if(isset($_REQUEST['number'])){
+                        $search_que = $_REQUEST['number'];
+                        $title = "Withdraw for $search_que";
+                        $sql = "SELECT * FROM deposit WHERE status = 'Approved' AND phone='$search_que'";
                     } else {
                         $title = "Success Deposit";
                         $sql = "SELECT * FROM deposit WHERE status = 'Approved'";
@@ -525,6 +556,13 @@ function show_html($par, $q, $count, $query)
                                 required>
                             <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
                         </form>
+                        <br>
+                        <form method='get' action=''>
+                            <input type="hidden" value="<?php echo $q; ?>" name="q">
+                            <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by number" type="number" name="number"
+                                required>
+                            <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
+                        </form>
                     </div>
                 </div>
 
@@ -609,6 +647,13 @@ function show_html($par, $q, $count, $query)
                         <form method='get' action=''>
                             <input type="hidden" value="<?php echo $q; ?>" name="q">
                             <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by Email" type="email" name="search"
+                                required>
+                            <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
+                        </form>
+                        <br>
+                        <form method='get' action=''>
+                            <input type="hidden" value="<?php echo $q; ?>" name="q">
+                            <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by number" type="number" name="number"
                                 required>
                             <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
                         </form>
