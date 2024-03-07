@@ -109,7 +109,6 @@
       $sql = "SELECT * FROM users WHERE email = '$email'";
       $query = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($query);
-      echo '<br><b>'.$email.'</b></br>';
       if($row == null) die("null");
 
       $id = $row['id'];
