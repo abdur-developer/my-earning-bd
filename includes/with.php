@@ -75,7 +75,7 @@ if(isset($_REQUEST['amount'])){
         <div
             class="bg-gray-200 p-5 mt-5 rounded-xl shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
             <form class="space-y-5" action="" method="post">
-                <div class="text-sm rounded bg-blue-500 p-5">
+                <div class="text-sm rounded bg-green-700 p-5">
                     <h3 class="text-white ">টাকা উইথড্র দেওয়ার জন্য আপনাকে মিনিমাম ৪ টি রেফার কমপ্লিট করতে হবে। মাত্র ৪ টি রেফার করে আপনি আনলিমিটেড উইথড্র করতে পারবেন। ধন্যবাদ </h3>
                 </div>
                 <div class="text-sm">
@@ -83,7 +83,9 @@ if(isset($_REQUEST['amount'])){
                         কত টাকা উত্তলন করবেন ?
                     </label>
                     <select name="amount" class="border w-full p-5" required>
+                        <option value="100">৳100</option>
                         <option value="200">৳200</option>
+                        <option value="300">৳300</option>
                         <option value="500">৳500</option>
                         <option value="1000">৳1000</option>
                     </select>

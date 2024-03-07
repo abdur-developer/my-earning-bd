@@ -352,12 +352,12 @@ $referal = "$x_name (" . $other_ref . ")";
                                     <i class="fa-brands fa-facebook"></i>
                                 </button>
                             </a>
-                            <a href="https://t.me/+-dJ6ZCc4EyxhMWQ1">
+                            <a href="https://t.me/myearningbd22">
                                 <button class="text-sky-500">
                                     <i class="fa-brands fa-telegram"></i>
                                 </button>
                             </a>
-                            <a href="https://wa.me/message/KFX2AKXBM3KLA1">
+                            <a href="https://wa.me/8801948228789">
                                 <button class="text-green-500">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </button>

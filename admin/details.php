@@ -85,27 +85,14 @@
     if (isset($_REQUEST['e'])) {
       $email = $_REQUEST['e'];
 
-      $sql = "SELECT * FROM users WHERE email = '$email'";
-      $query = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_assoc($query);
-      if($row == null) die("null");
-
-      $id = $row['id'];
-      $name = $row['name'];
-      $time = $row['time'];
-      $status = $row['status'];
-      $my_ref = $row['my_ref_code'];
-      $ot_ref = $row['ot_ref_code'];
-      $balance = $row['balance'];
-      $t_withdew = $row['t_withdrew'];
-      $t_deposite = $row['t_deposite'];
-      //$name = $row['name'];
-      
       if (isset($_REQUEST['status'])) {
         $st = $_REQUEST['status'];
         $balance = $_REQUEST['balance'];
+        $tw = $_REQUEST['total_with'];//total_withdraw
+        $td = $_REQUEST['total_dip'];//total_diposit
+        
 
-        $sql = "UPDATE users SET balance = '$balance', status = '$st' WHERE id = '$id'";
+        $sql = "UPDATE users SET balance = '$balance', status = '$st', t_withdrew = $tw, t_deposite = $td WHERE email = '$email'";
         $query = mysqli_query($conn, $sql);
         if ($query) { ?>
 
@@ -118,6 +105,24 @@
       <?php
         }
       }
+
+      $sql = "SELECT * FROM users WHERE email = '$email'";
+      $query = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($query);
+      echo '<br><b>'.$email.'</b></br>';
+      if($row == null) die("null");
+
+      $id = $row['id'];
+      $name = $row['name'];
+      $time = $row['time'];
+      $status = $row['status'];
+      $my_ref = $row['my_ref_code'];
+      $ot_ref = $row['ot_ref_code'];
+      $balance = $row['balance'];
+      $t_withdew = $row['t_withdrew'];
+      $t_deposite = $row['t_deposite'];
+      
+      
     
       ?>
 
@@ -154,8 +159,13 @@
         </div>
 
         <div class="input-group">
-          <label>Refer code:</label>
+          <label>My Refer code:</label>
           <input value="<?php echo $my_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="input-group">
+          <label>Other Refer code:</label>
+          <input value="<?php echo $ot_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
@@ -165,12 +175,12 @@
 
         <div class="input-group">
           <label>Total withdraw:</label>
-          <input value="<?php echo $t_withdew; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input name="total_with" value="<?php echo $t_withdew; ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>Total Deposit:</label>
-          <input value="<?php echo $t_deposite; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input name="total_dip" value="<?php echo $t_deposite; ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">

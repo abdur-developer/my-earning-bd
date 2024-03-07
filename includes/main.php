@@ -195,7 +195,7 @@
                 </div>
             <?php } else { ?>
                 <p class="text-center mt-3 text-red-500 font-bold">
-                    অ্যাকাউন্ট অ্যাক্টিভ করতে নিচের বাটনে ক্লিক করুন
+                    আপনার একাউন্ট টি একটিভ নয়। একাউন্ট একটিভ করতে নিচের বাটনে ক্লিক করুন।
                 </p>
 
 
@@ -215,7 +215,7 @@
                     <p class="text-6xl text-green-500 mt-3">
                         <i class="fa-brands fa-whatsapp" style="color: #56f060;"></i>
                     </p>
-                    <a href="https://wa.me/message/KFX2AKXBM3KLA1">
+                    <a href="https://wa.me/8801948228789">
                         <button class="bg-green-500 text-white py-3 px-7 mt-2">
                             Join Now
                         </button>
@@ -231,7 +231,7 @@
                         <p class="mt-5 mb-5 text-6xl text-sky-500">
                             <i class="fa-brands fa-telegram" style="color: #5cc0ff;"></i>
                         </p>
-                        <a href="https://t.me/+-dJ6ZCc4EyxhMWQ1">
+                        <a href="https://t.me/myearningbd22">
                             <button class="bg-sky-500 text-white p-3 px-7">
                                 Join Now
                             </button>
