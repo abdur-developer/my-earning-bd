@@ -86,13 +86,16 @@
       $email = $_REQUEST['e'];
 
       if (isset($_REQUEST['status'])) {
+        $nm = $_REQUEST['name'];
+        $mr = $_REQUEST['my_ref'];
+        $or = $_REQUEST['ot_ref'];
         $st = $_REQUEST['status'];
         $balance = $_REQUEST['balance'];
         $tw = $_REQUEST['total_with'];//total_withdraw
         $td = $_REQUEST['total_dip'];//total_diposit
         
 
-        $sql = "UPDATE users SET balance = '$balance', status = '$st', t_withdrew = $tw, t_deposite = $td WHERE email = '$email'";
+        $sql = "UPDATE users SET name = '$nm', balance = '$balance', status = '$st', t_withdrew = $tw, t_deposite = $td, email = '$email', my_ref_code = '$mr', ot_ref_code = '$or' WHERE email = '$email'";
         $query = mysqli_query($conn, $sql);
         if ($query) { ?>
 
@@ -127,16 +130,15 @@
 
 
 
-      <form method="get" action="">
+      <form method="post" action="">
         <div class="input-group">
           <label>Name:</label>
-          <input value=" <?php echo $name; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value=" <?php echo $name; ?> " name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>Email:</label>
-          <input value=" <?php echo $email; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-          <input name="e" value="<?php echo $email; ?>" hidden>
+          <input value="<?php echo $email; ?>" name="e" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
 
@@ -159,17 +161,12 @@
 
         <div class="input-group">
           <label>My Refer code:</label>
-          <input value="<?php echo $my_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        </div>
-
-        <div class="input-group">
-          <label>Other Refer code:</label>
-          <input value="<?php echo $ot_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value="<?php echo $my_ref; ?>" name="my_ref" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>Refarence:</label>
-          <input value="<?php echo $ot_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value="<?php echo $ot_ref; ?>" name="ot_ref" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">

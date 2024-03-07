@@ -464,14 +464,14 @@ function show_html($par, $q, $count, $query)
                     <?php echo $count; ?>
                 </h1>
                 <div>
-                    <form method='get' action=''>
+                    <form method='post' action=''>
                         <input type="hidden" value="<?php echo $q; ?>" name="q">
                         <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by Email" type="email" name="search"
                             required>
                         <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
                     </form>
                     <br>
-                    <form method='get' action=''>
+                    <form method='post' action=''>
                         <input type="hidden" value="<?php echo $q; ?>" name="q">
                         <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by refer" type="number" name="ref_code"
                             required>
@@ -550,14 +550,14 @@ function show_html($par, $q, $count, $query)
                     <?php echo $count; ?>
                     </h1>
                     <div>
-                        <form method='get' action=''>
+                        <form method='post' action=''>
                             <input type="hidden" value="<?php echo $q; ?>" name="q">
                             <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by Email" type="email" name="search"
                                 required>
                             <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
                         </form>
                         <br>
-                        <form method='get' action=''>
+                        <form method='post' action=''>
                             <input type="hidden" value="<?php echo $q; ?>" name="q">
                             <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by number" type="number" name="number"
                                 required>
@@ -644,14 +644,14 @@ function show_html($par, $q, $count, $query)
                     <?php echo $count; ?>
                     </h1>
                     <div>
-                        <form method='get' action=''>
+                        <form method='post' action=''>
                             <input type="hidden" value="<?php echo $q; ?>" name="q">
                             <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by Email" type="email" name="search"
                                 required>
                             <input type='submit' class="bg-blue-400 px-2 py-1 text-white">
                         </form>
                         <br>
-                        <form method='get' action=''>
+                        <form method='post' action=''>
                             <input type="hidden" value="<?php echo $q; ?>" name="q">
                             <input class="bg-white px-2 py-1 w-[70%]" placeholder="Search by number" type="number" name="number"
                                 required>
