@@ -99,6 +99,7 @@
       $amount = "null";
       $status = "null";
       $method = "null";
+      $ot_ref = "null";
 
       if ($row != null) {
         $email = $row['email'];
@@ -108,6 +109,7 @@
         $status = $row['status'];
         $method = $row['method'];
         $trx_id = $row['trx_id'];
+        $ot_ref = $row['ot_ref'];
         //get user id 
         $sqli = "SELECT * FROM users WHERE email = '$email'";
         $querypp = mysqli_query($conn, $sqli);
@@ -214,25 +216,25 @@
       <form method="get" action="">
         <div class="input-group">
           <label>Phone:</label>
-          <input value=" <?php echo $phone; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-          <input name="id_d" value=" <?php echo $d_id; ?> " hidden>
+          <input value=" <?= $phone; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input name="id_d" value=" <?= $d_id; ?> " hidden>
         </div>
 
         <div class="input-group">
           <label>method:</label>
-          <input value=" <?php echo $method; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value=" <?= $method; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>TRX ID:</label>
-          <input value=" <?php echo $trx_id; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value=" <?= $trx_id; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>Email:</label>
-          <input value=" <?php echo $email; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-          <input name="id" value=" <?php echo $id; ?> " hidden>
-          <input name="ref" value=" <?php echo $refence; ?> " hidden>
+          <input value=" <?= $email; ?> " readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input name="id" value=" <?= $id; ?> " hidden>
+          <input name="ref" value=" <?= $refence; ?> " hidden>
         </div>
 
 
@@ -250,15 +252,20 @@
 
         <div class="input-group">
           <label>Amount:</label>
-          <input name="amount" value="<?php echo $amount; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input name="amount" value="<?= $amount; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="input-group">
+          <label>Refarence:</label>
+          <input value="<?= $ot_ref; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="input-group">
           <label>Deposit time:</label>
-          <input value="<?php echo $time; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <input value="<?= $time; ?>" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
-        <input name="idx" value=" <?php echo $d_id; ?> " hidden>
+        <input name="idx" value=" <?= $d_id; ?> " hidden>
         <input type="submit" value="Update Data" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
       </form>
     </div>

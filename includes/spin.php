@@ -1,5 +1,5 @@
 <section>
-    <div style="margin-left: 65px;">
+    <div style="margin-left: 35px;">
         <h1 class="text-4xl font-bold text-center ">Daily spin</h1>
         <div class="flex justify-center items-center bg-cover bg-center ">
             <div class="mainbox" id="mainbox">

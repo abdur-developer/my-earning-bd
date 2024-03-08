@@ -1,12 +1,14 @@
 <?php
 echo "<h1 class='text-4xl font-bold text-center'>Account Activition</h1>";
 if (isset($_REQUEST["number"])) {
+    
+
     $phone = $_REQUEST["number"];
     $trx = $_REQUEST["trx"];
     $method = $_REQUEST["method"];
     $amount = $_REQUEST["amount"];
 
-    $sql = "INSERT INTO deposit ( email, phone, amount, method, trx_id ) VALUES ( '$email', '$phone', '$amount', '$method', '$trx' )";
+    $sql = "INSERT INTO deposit ( email, phone, amount, method, trx_id, ot_ref ) VALUES ( '$email', '$phone', '$amount', '$method', '$trx', '$other_ref')";
     $query = mysqli_query($conn, $sql);
     if ($query) { ?>
 
