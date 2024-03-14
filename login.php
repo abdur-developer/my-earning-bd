@@ -36,7 +36,7 @@
             $has_pass = $row['password'];
 
             if(password_verify($pass, $has_pass)){
-                header("location: loginS.php?email=$email");
+                echo "<script>window.location.href = 'loginS.php?email=$email';</script>";
             }else{
                 echo "<script>Swal.fire({
                     icon: 'error',

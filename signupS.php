@@ -10,7 +10,7 @@ if(isset($_REQUEST['name'])){
     $my_ref = rand(100000, 999999);
 
     $sql = "INSERT INTO users (name, email, password, my_ref_code, ot_ref_code, last_spin) 
-    VALUES ('$name', '$email', '$has_pass', '$my_ref', '$ot_ref', (CURRENT_TIMESTAMP - INTERVAL 1 DAY));";
+    VALUES ('$name', '$email', '$has_pass', '$my_ref', '$ot_ref', '2024-01-07 21:57:26');";
 
     if(mysqli_query($conn, $sql)){
         session_start();
