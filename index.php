@@ -88,35 +88,33 @@ if (isset($_SESSION['my_login_mail'])) {
   </div>
   <!-- banner -->
   <div class="bg-[#FFFFFD] ">
-    <div class="flex justify-between items-center ">
-      <div class="px-3 ml-3">
+    <div class="dhon">
+      <div class="col-6 px-3 ml-3">
         <div class="flex flex-col justify-center items-center">
           <h2 class="font-bold text-2xl md:text-5xl">১রেফারে</h2>
           <h2 class="text-[#FFBC27] text-2xl font-bold md:text-5xl">
             ৪০ টাকা
           </h2>
         </div>
-        <p class="text-[10px] md:text-xl text-justify  py-5" style="font-size: 15px">
+        <p class="text-[10px] md:text-xl text-justify" style="font-size: 15px">
           ১০০ টাকা দিয়ে অ্যাকাউন্ট খুলে প্রতি রেফার করলে আপনি পাবেন ৪০ টাকা
         </p>
-        <div class="text-[10px] md:text-xl flex gap-5 px-5 justify-center mt-5">
+        <div class="text-[10px] md:text-xl flex row justify-center mt-5">
           <?php if ($is_login) { ?>
 
-            <button class="Sign-up-ex-c px-2 mt-2 rounded-lg shadow font-bold"><a href="dashboard.php"> Dashboard</a></button>
+            <button class="col-8 Sign-up-ex-c mt-2 rounded-lg shadow font-bold"><a href="dashboard.php"> Dashboard</a></button>
             </button>
 
           <?php } else { ?>
-            <div class="">
-              <button class="Sign-up-ex-c px-2 mb-2 rounded-lg shadow font-bold col-6"><a href="login.php"> Login</a></button>
-              <button class="Sign-up-ex-c px-2 mb-2 rounded-lg shadow font-bold col-6"><a href="signup.php">
+              <button class="Sign-up-ex-c mr-1 px-2 mb-2 font-bold rounded-lg shadow col-4"><a href="login.php"> Login</a></button>
+              <button class="Sign-up-ex-c ml-1 px-2 mb-2 font-bold rounded-lg shadow col-4"><a href="signup.php">
                   Sign Up</a>
               </button>
-            </div>
           <?php } ?>
         </div>
       </div>
-      <div class="relative">
-        <img src="assets/images/img2.png" class="md:w-100" alt="" />
+      <div class="col-5 bal">
+        <img src="assets/images/img2.png" alt="" />
       </div>
     </div>
   </div>

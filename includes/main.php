@@ -63,12 +63,12 @@
             </script>
         </div>
     </div>
-    <div class="bg-green-200 text-green-600 p-10 text-center mt-5">
+    <!-- <div class="bg-green-200 text-green-600 p-10 text-center mt-5">
         <h1>
             200/100 টি রেফার কমপ্লিট হলে আপনার পুরস্কার টি বুঝে নিতে এডমিন
             এর সাথে যোগাযোগ করুন ধন্যবাদ
         </h1>
-    </div>
+    </div> -->
     <div class="flex justify-center items-center py-5 text-xl">
         <h2>
             <span>Welcome </span>
@@ -133,7 +133,7 @@
                         </button>
                     </div>
                     <p id="textToLink" class="text-center mt-3 text-black-500 font-bold">
-                        <?php echo "https://myearningbd.com/signup.php?ref=" . $my_ref; ?>
+                        <?php echo "https://myebd.com/signup.php?ref=" . $my_ref; ?>
                     </p>
                     <div class="flex justify-center items-center mt-5 gap-5">
                         <button class="bg-orange-500 text-white py-3 px-7" onclick="copyText()">
